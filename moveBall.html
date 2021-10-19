@@ -1,0 +1,89 @@
+<div id="ball" style="
+  z-index:5;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:green"></div>
+
+<div id="ball2" style="
+z-index:1;
+position:absolute;
+left:100px;
+top:100px;
+width:50px;
+height:50px;
+border-radius:50%;
+background:rgb(144, 45, 236)"></div>
+
+<script>
+
+var xVelocity = 5;
+var yVelocity = 5;
+var xPosition = 0;
+var yPosition = 0;
+var rightEdge = window.innerWidth;
+var bottomEdge = window.innerHeight;
+var xReverse = false;
+var yReverse = false;
+var ball = document.getElementById('ball');
+
+var xVelocity2 = 5;
+var yVelocity2 = 5;
+var xPosition2 = 250;
+var yPosition2 = 150;
+var xReverse2 = false;
+var yReverse2 = false;
+var ball2 = document.getElementById('ball2');
+
+// YOUR CODE 
+// ----------------
+
+function moveBall(){
+  if (xPosition > (rightEdge - 50) ||
+      xPosition == 0) {
+        xReverse = !xReverse;
+      }
+  if (yPosition > (bottomEdge - 50) ||
+      yPosition == 0) {
+        yReverse = !yReverse;
+      }
+  if (xReverse == true) {
+        xPosition = xPosition + xVelocity}
+  else {
+        xPosition = xPosition - xVelocity}
+  if (yReverse == true) {
+        yPosition = yPosition + yVelocity}
+  else {
+        yPosition = yPosition - yVelocity}
+
+  // MOVEMENT FOR BALL 2
+
+  if (xPosition2 > (rightEdge - 50) ||
+      xPosition2 == 0) {
+        xReverse2 = !xReverse2;
+      }
+  if (yPosition2 > (bottomEdge - 50) ||
+      yPosition2 == 0) {
+        yReverse2 = !yReverse2;
+      }
+  if (xReverse2 == true) {
+        xPosition2 = xPosition2 + xVelocity2}
+  else {
+        xPosition2 = xPosition2 - xVelocity2}
+  if (yReverse2 == true) {
+        yPosition2 = yPosition2 + yVelocity2}
+  else {
+        yPosition2 = yPosition2 - yVelocity2}
+  
+  ball.style.left = xPosition + 'px';
+  ball.style.top = yPosition + 'px';
+  ball2.style.left = xPosition2 + 'px';
+  ball2.style.top = yPosition2 + 'px';
+  
+}
+
+setInterval(moveBall, 25);
+</script>
